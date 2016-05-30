@@ -11,7 +11,7 @@ describe('Service: MovieService', function() {
   // Initialize the controller and mocks for scope and http
   beforeEach(inject(function(_MovieService_, $httpBackend) {
     httpBackend = $httpBackend;
-    httpBackend.when('GET', 'https://demo2697834.mockable.io/movies').respond({
+    httpBackend.whenGET('https://demo2697834.mockable.io/movies').respond({
       "entries": [{
         "title": titleTestString,
         "contents": [{
