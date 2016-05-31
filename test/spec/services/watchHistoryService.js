@@ -23,6 +23,12 @@ describe('Service: WatchHistoryService', function() {
       watchDate: new Date(),
       session: sessionId
     }]);
+    httpBackend.whenPOST(rootUrl).respond({
+      title: titleTestString,
+      movieId: 1,
+      watchDate: new Date(),
+      session: sessionId
+    });
     watchHistoryService = _WatchHistoryService_;
   }));
 
@@ -33,5 +39,14 @@ describe('Service: WatchHistoryService', function() {
     });
     httpBackend.flush();
     expect(watchHistory[0].title).toBe(titleTestString);
+  });
+
+  it('should return persistet movieItem', function() {
+    var movieItem;
+    watchHistoryService.persist({}).then(function(data) {
+      movieItem = data;
+    });
+    httpBackend.flush();
+    expect(movieItem.title).toBe(titleTestString);
   });
 });

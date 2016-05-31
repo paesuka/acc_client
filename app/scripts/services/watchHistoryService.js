@@ -15,9 +15,9 @@ angular.module('accClientApp')
         return response.data;
       });
     };
-    this.persist = function(watchHistory) {
-      $http.post(rootUrl, watchHistory).then(function(response) {
-        //success TODO
+    this.persist = function(movieItem) {
+      return $http.post(rootUrl, movieItem).then(function(response) {
+        return response.data;
       });
     };
   });
