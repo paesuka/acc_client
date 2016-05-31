@@ -28,14 +28,18 @@ angular.module('accClientApp')
         });
 
         uibModalInstance.result.then(function() {}, function() {
-          movieItem.session = 'sess1';
-          movieItem.watchDate = new Date();
-          WatchHistoryService.persist(movieItem).then(function(data) {
-            console.log('persistet new watch item ' + data);
-          },
-          function(data) {
-            console.log('error persisting new watch item ' + data);
-          });
+          var watchItem = {
+            title: movieItem.title,
+            movieId: movieItem.id,
+            watchDate: new Date(),
+            session: 'sess1'
+          };
+          WatchHistoryService.persist(watchItem).then(function(data) {
+              console.log('persistet new watch item ' + data);
+            },
+            function(data) {
+              console.log('error persisting new watch item ' + data);
+            });
           console.log('modal dismissed at: ' + new Date());
         });
       };
