@@ -43,7 +43,7 @@ describe('Service: WatchHistoryService', function() {
 
   it('should return persistet movieItem', function() {
     var movieItem;
-    watchHistoryService.persist({}).then(function(data) {
+    watchHistoryService.addWatchedMovie({}).then(function(data) {
       movieItem = data;
     });
     httpBackend.flush();

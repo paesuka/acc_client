@@ -10,6 +10,28 @@
 angular.module('accClientApp')
   .controller('MovieCtrl', ['$scope', '$uibModal', 'MovieService', 'WatchHistoryService',
     function($scope, $uibModal, MovieService, WatchHistoryService) {
+
+      $scope.slickConfig = {
+        enabled: true,
+        autoplay: false,
+        draggable: true,
+        infinite: true,
+        arrows: false,
+        slidesToShow: 10,
+        variableWidth: true,
+        slidesToScroll: 1,
+        method: {},
+        event: {
+          beforeChange: function(event, slick, currentSlide, nextSlide) {},
+          afterChange: function(event, slick, currentSlide, nextSlide) {},
+          init: function(event, slick, currentSlide, nextSlide) {}
+        }
+      };
+
+      $scope.toggleSlick = function() {
+        $scope.slickConfig.enabled = !$scope.slickConfig.enabled;
+      };
+
       MovieService.findAll().then(function(data) {
         $scope.movies = data;
       }, function(data) {
@@ -34,7 +56,8 @@ angular.module('accClientApp')
             watchDate: new Date(),
             session: 'sess1'
           };
-          WatchHistoryService.persist(watchItem).then(function(data) {
+
+          WatchHistoryService.addWatchedMovie(watchItem).then(function(data) {
               console.log('persistet new watch item ' + data);
             },
             function(data) {
@@ -42,6 +65,7 @@ angular.module('accClientApp')
             });
           console.log('modal dismissed at: ' + new Date());
         });
+
       };
     }
   ]);

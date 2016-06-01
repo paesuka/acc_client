@@ -11,8 +11,8 @@ describe('Service: MovieService', function() {
   // Initialize the controller and mocks for scope and http
   beforeEach(inject(function(_MovieService_, $httpBackend) {
     httpBackend = $httpBackend;
-    httpBackend.whenGET('https://demo2697834.mockable.io/movies').respond({
-      "entries": [{
+    httpBackend.whenGET('http://localhost:9000/api/v0/movies').respond(
+      [{
         "title": titleTestString,
         "contents": [{
           "url": "http://d2bqeap5aduv6p.cloudfront.net/project_coderush_640x360_521kbs_56min.mp4"
@@ -24,7 +24,7 @@ describe('Service: MovieService', function() {
         }],
         "id": "10-things-i-hate-about-you"
       }]
-    });
+    );
     movieService = _MovieService_;
   }));
 

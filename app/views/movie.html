@@ -1,10 +1,7 @@
-<div class="movie_control">
-  <div class="row">
-    <div class="col-lg-12">
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="movie in movies">
-        <img ng-click="playMovie(movie)" ng-src="{{movie.images[0].url}}" style="margin:auto;" ng-click="$ctrl.openVideoPlayerPopup(movie.contents[0].url)">
-        <li>{{movie.title}}</li>
-      </ul>
-    </div>
+<button ng-click="toggleSlick()">Toggle</button>
+<slick settings="slickConfig">
+  <div ng-repeat="movie in movies">
+    <img ng-click="playMovie(movie)" ng-src="{{movie.images[0].url}}">
+    <li>{{movie.title}}</li>
   </div>
-</div>
+</slick>

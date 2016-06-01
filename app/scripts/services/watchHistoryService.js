@@ -15,7 +15,7 @@ angular.module('accClientApp')
         return response.data;
       });
     };
-    this.persist = function(movieItem) {
+    this.addWatchedMovie = function(movieItem) {
       return $http.post(rootUrl, movieItem).then(function(response) {
         return response.data;
       });
