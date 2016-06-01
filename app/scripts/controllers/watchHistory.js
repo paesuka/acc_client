@@ -8,8 +8,9 @@
  * Controller of the accClientApp
  */
 angular.module('accClientApp')
-  .controller('WatchHistoryCtrl', ['$scope', 'WatchHistoryService', function ($scope, WatchHistoryService) {
-      WatchHistoryService.findBySession('sess1').then(function(data){
+  .controller('WatchHistoryCtrl', ['$scope', '$rootScope', 'WatchHistoryService',
+  function ($scope, $rootScope, WatchHistoryService) {
+      WatchHistoryService.findByUserId($rootScope.cookie).then(function(data){
       $scope.watchHistory = data;
     }, function(data){
         console.log('error : '+ data);

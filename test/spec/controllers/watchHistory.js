@@ -17,7 +17,7 @@ describe('Controller: WatchHistoryCtrl', function() {
     watchHistoryCtrl = $controller('WatchHistoryCtrl', {
       $scope: scope,
       WatchHistoryService: {
-        findBySession: function(session) {
+        findByUserId: function(session) {
           return promise;
         }
       }

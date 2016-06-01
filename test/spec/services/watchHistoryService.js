@@ -7,34 +7,34 @@ describe('Service: WatchHistoryService', function() {
   var watchHistoryService, httpBackend;
   var titleTestString = 'things I did';
   var rootUrl = 'http://localhost:9000/api/v0/watchhistory/';
-  var sessionId = 'sess1';
+  var userId = 1;
 
   // Initialize the controller and mocks for scope and http
   beforeEach(inject(function(_WatchHistoryService_, $httpBackend) {
     httpBackend = $httpBackend;
-    httpBackend.whenGET(rootUrl + sessionId).respond([{
+    httpBackend.whenGET(rootUrl + userId).respond([{
       title: titleTestString,
       movieId: 1,
       watchDate: new Date(),
-      session: sessionId
+      userId: userId
     }, {
       title: 'things I saw',
       movieId: 2,
       watchDate: new Date(),
-      session: sessionId
+      userId: userId
     }]);
     httpBackend.whenPOST(rootUrl).respond({
       title: titleTestString,
       movieId: 1,
       watchDate: new Date(),
-      session: sessionId
+      userId: userId
     });
     watchHistoryService = _WatchHistoryService_;
   }));
 
-  it('findBySession should return all movies with matching sessions', function() {
+  it('findByUserId should return all movies with matching userIds', function() {
     var watchHistory;
-    watchHistoryService.findBySession(sessionId).then(function(data) {
+    watchHistoryService.findByUserId(userId).then(function(data) {
       watchHistory = data;
     });
     httpBackend.flush();
