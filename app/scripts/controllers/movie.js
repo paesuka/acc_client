@@ -40,7 +40,7 @@
 
       $scope.playMovie = function(movieItem) {
         var uibModalInstance = $uibModal.open({
-          templateUrl: '../../views/moviePlayer.html',
+          templateUrl: 'views/moviePlayer.html',
           controller: 'MoviePlayerCtrl',
           resolve: {
             movieUrl: function() {
