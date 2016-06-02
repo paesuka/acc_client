@@ -17,10 +17,10 @@ var app = angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-    'slickCarousel'
-  ]).config(function($sceDelegateProvider) {
-    $sceDelegateProvider.resourceUrlWhitelist(['**']);
-  }).config(function($routeProvider) {
+    'slickCarousel',
+    'com.2fdevs.videogular',
+    'com.2fdevs.videogular.plugins.controls'
+  ]).config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/movie.html',
@@ -49,3 +49,18 @@ app.run(['$rootScope', '$cookies', function($rootScope, $cookies) {
   }
   $rootScope.cookie = watchHistoryCookie;
 }]);
+
+app.directive('customAutofocus', function() {
+  return{
+         restrict: 'A',
+         link: function(scope, element, attrs){
+           scope.$watch(function(){
+             return scope.$eval(attrs.customAutofocus);
+             },function (newValue){
+               if (newValue === true){
+                   element[0].focus();//use focus function instead of autofocus attribute to avoid cross browser problem. And autofocus should only be used to mark an element to be focused when page loads.
+               }
+           });
+         }
+     };
+});

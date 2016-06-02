@@ -33,8 +33,8 @@
           templateUrl: 'views/moviePlayer.html',
           controller: 'MoviePlayerCtrl',
           resolve: {
-            movieUrl: function() {
-              return movieItem.contents[0].url;
+            movieContent: function() {
+              return movieItem.contents[0];
             }
           }
         });

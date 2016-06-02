@@ -6,18 +6,18 @@ describe('Controller: MoviePlayerCtrl', function() {
   beforeEach(module('accClientApp'));
 
   var moviePlayerCtrl, scope;
-  var movieUrl = 'url';
+  var movieContent = [];
 
   // Initialize the controller and mock for scope
   beforeEach(inject(function($controller, $rootScope) {
     scope = $rootScope.$new();
     moviePlayerCtrl = $controller('MoviePlayerCtrl', {
       $scope: scope,
-      movieUrl: movieUrl
+      movieContent: movieContent
     });
   }));
 
   it('should set movie url to argument passed', function() {
-    expect(scope.movieUrl).toBe(movieUrl);
+    expect(scope.movieUrl).toBe(movieContent);
   });
 });

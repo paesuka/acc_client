@@ -32,6 +32,8 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/slick-carousel/slick/slick.js',
       'bower_components/angular-slick-carousel/dist/angular-slick.js',
+      'bower_components/videogular/videogular.js',
+      'bower_components/videogular-controls/vg-controls.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

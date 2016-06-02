@@ -7,7 +7,18 @@
  * # MoviePlayerCtrl
  * Controller of the accClientApp
  */
- angular.module('accClientApp')
-   .controller('MoviePlayerCtrl', ['$scope', 'movieUrl', function($scope, movieUrl) {
-    $scope.movieUrl = movieUrl;
-  }]);
+angular.module('accClientApp')
+  .controller('MoviePlayerCtrl', ['$scope', '$sce', '$uibModalInstance', 'movieContent',
+    function($scope, $sce, modalInstance, movieContent) {
+      $scope.config = {
+        sources: [{
+          src: $sce.trustAsResourceUrl(movieContent.url),
+          type: 'video/' + movieContent.format
+        }],
+        tracks: []
+      };
+      $scope.movieCompleted = function() {
+        modalInstance.dismiss();
+      }
+    }
+  ]);
