@@ -5,7 +5,6 @@ describe('Service: WatchHistoryService', function() {
   beforeEach(module('accClientApp'));
 
   var watchHistoryService, httpBackend;
-  var titleTestString = 'things I did';
   var rootUrl = 'http://localhost:9000/api/v0/watchhistory/';
   var userId = 1;
 
@@ -13,13 +12,18 @@ describe('Service: WatchHistoryService', function() {
   beforeEach(inject(function(_WatchHistoryService_, $httpBackend) {
     httpBackend = $httpBackend;
     httpBackend.whenGET(rootUrl + userId).respond([{
-      title: titleTestString,
+      title: 'things I did',
       movieId: 1,
       watchDate: new Date(),
       userId: userId
     }, {
       title: 'things I saw',
       movieId: 2,
+      watchDate: new Date(),
+      userId: userId
+    }, {
+      title: 'things I avoid',
+      movieId: 3,
       watchDate: new Date(),
       userId: userId
     }]);
@@ -32,16 +36,16 @@ describe('Service: WatchHistoryService', function() {
     watchHistoryService = _WatchHistoryService_;
   }));
 
-  it('findByUserId should return all movies with matching userIds', function() {
+  it('should return all movies with matching userIds for findByUserId', function() {
     var watchHistory;
     watchHistoryService.findByUserId(userId).then(function(data) {
       watchHistory = data;
     });
     httpBackend.flush();
-    expect(watchHistory[0].title).toBe(titleTestString);
+    expect(watchHistory.length).toBe(3);
   });
 
-  it('should return persistet movieItem', function() {
+  it('should return persistet movieItem after adding', function() {
     var movieItem;
     watchHistoryService.addWatchedMovie({}).then(function(data) {
       movieItem = data;
