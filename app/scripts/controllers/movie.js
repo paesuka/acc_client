@@ -18,24 +18,14 @@
       });
 
       $scope.slickConfig = {
-        enable: true,
+        enabled: true,
         draggable: true,
         infinite: true,
         variableWidth: true,
         autoplay: false,
         arrows: false,
         slidesToShow: 10,
-        slidesToScroll: 1,
-        method: {},
-        event: {
-          init: function(event, slick, currentSlide, nextSlide) {
-            $scope.slickConfig.enabled = true;
-          }
-        }
-      };
-
-      $scope.toggleSlick = function() {
-        $scope.slickConfig.enabled = !$scope.slickConfig.enabled;
+        slidesToScroll: 1
       };
 
       $scope.playMovie = function(movieItem) {
