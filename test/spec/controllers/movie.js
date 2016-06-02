@@ -9,7 +9,7 @@ describe('Controller: MovieCtrl', function() {
   var promiseValue = 1;
 
   // Initialize the controller and mocks for scope and MovieService
-  beforeEach(inject(function($controller, $q, $rootScope, _MovieService_) {
+  beforeEach(inject(function($controller, $q, $rootScope) {
     var deferred = $q.defer();
     var promise = deferred.promise;
     deferred.resolve(promiseValue);

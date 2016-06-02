@@ -7,6 +7,7 @@ describe('Service: WatchHistoryService', function() {
   var watchHistoryService, httpBackend;
   var rootUrl = 'http://localhost:9000/api/v0/watchhistory/';
   var userId = 1;
+  var titleTestString = 'things I want';
 
   // Initialize the controller and mocks for scope and http
   beforeEach(inject(function(_WatchHistoryService_, $httpBackend) {

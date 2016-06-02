@@ -19,5 +19,5 @@ angular.module('accClientApp')
       function sortWatchItem(left, right) {
         return new Date(right.watchDate).getTime() - new Date(left.watchDate).getTime();
       }
-    };
+    }
   ]);
