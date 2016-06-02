@@ -25,9 +25,23 @@ header {
   margin-left: 10px;
   margin-right: 10px;
 }
-.slick-current {
+.caption {
+  display: table;
+}
+.movie-picture, .movie-title {
+  padding: 0.4em;
+}
+.movie-picture + .movie-title {
+  display: table-caption;
+  caption-side: bottom;
+  overflow: hidden;
+  /*white-space: nowrap;*/
+}
+.slick-current .movie-picture {
   border-color: rgb(24, 152, 236);
-  border-style: inset;
+  border-style: solid;
+  border-width: 0.3em;
+  padding: 0.1em;
 }
 .wrapper {
   margin: 2em;

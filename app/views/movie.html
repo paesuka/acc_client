@@ -1,7 +1,13 @@
 <button ng-click="toggleSlick()">Toggle</button>
-<slick settings="slickConfig">
+<slick settings="slickConfig" enabled=true>
   <div ng-repeat="movie in movies">
-    <img ng-click="playMovie(movie)" ng-src="{{movie.images[0].url}}">
-    <li>{{movie.title}}</li>
+    <div class="caption">
+      <div class="movie-picture">
+        <img ng-click="playMovie(movie)" ng-src="{{movie.images[0].url}}">
+      </div>
+      <div class="movie-title">
+        {{movie.title}}
+      </div>
+    </div>
   </div>
 </slick>

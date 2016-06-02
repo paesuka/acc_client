@@ -18,19 +18,19 @@
       });
 
       $scope.slickConfig = {
-        enabled: true,
-        autoplay: false,
+        enable: true,
         draggable: true,
         infinite: true,
+        variableWidth: true,
+        autoplay: false,
         arrows: false,
         slidesToShow: 10,
-        variableWidth: true,
         slidesToScroll: 1,
         method: {},
         event: {
-          beforeChange: function(event, slick, currentSlide, nextSlide) {},
-          afterChange: function(event, slick, currentSlide, nextSlide) {},
-          init: function(event, slick, currentSlide, nextSlide) {}
+          init: function(event, slick, currentSlide, nextSlide) {
+            $scope.slickConfig.enabled = true;
+          }
         }
       };
 
