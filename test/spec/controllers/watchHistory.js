@@ -9,22 +9,22 @@ describe('Controller: WatchHistoryCtrl', function() {
   var promiseValue = [{
     title: 'things I did',
     movieId: 1,
-    watchDate: new Date("2012-04-23T18:25:43.511Z"),
+    watchDate: new Date('2012-04-23T18:25:43.511Z'),
     userId: 1
   }, {
     title: 'things I saw',
     movieId: 2,
-    watchDate: new Date("2014-04-23T18:26:43.511Z"),
+    watchDate: new Date('2014-04-23T18:26:43.511Z'),
     userId: 1
   }, {
     title: 'things I avoid',
     movieId: 3,
-    watchDate: new Date("2014-04-23T18:25:43.511Z"),
+    watchDate: new Date('2014-04-23T18:25:43.511Z'),
     userId: 1
   }];
 
   // Initialize the controller and mocks for scope and WatchHistoryService
-  beforeEach(inject(function($controller, $q, $rootScope, _WatchHistoryService_) {
+  beforeEach(inject(function($controller, $q, $rootScope) {
     var deferred = $q.defer();
     var promise = deferred.promise;
     deferred.resolve(promiseValue);
@@ -32,7 +32,7 @@ describe('Controller: WatchHistoryCtrl', function() {
     watchHistoryCtrl = $controller('WatchHistoryCtrl', {
       $scope: scope,
       WatchHistoryService: {
-        findByUserId: function(session) {
+        findByUserId: function() {
           return promise;
         }
       }

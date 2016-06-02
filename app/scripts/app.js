@@ -38,6 +38,14 @@ var app = angular
   });
 
 /**
+ * Defining constans to use through the application
+ */
+app.constant('config', {
+  apiUrlDev: 'http://localhost:9000/api/v0/',
+  apiUrl: 'https://immense-tor-76076.herokuapp.com/api/v0/'
+});
+
+/**
  * Creates a cookie to track watch history of a user over browser sessions
  */
 app.run(['$rootScope', '$cookies', function($rootScope, $cookies) {
@@ -49,18 +57,3 @@ app.run(['$rootScope', '$cookies', function($rootScope, $cookies) {
   }
   $rootScope.cookie = watchHistoryCookie;
 }]);
-
-app.directive('customAutofocus', function() {
-  return{
-         restrict: 'A',
-         link: function(scope, element, attrs){
-           scope.$watch(function(){
-             return scope.$eval(attrs.customAutofocus);
-             },function (newValue){
-               if (newValue === true){
-                   element[0].focus();//use focus function instead of autofocus attribute to avoid cross browser problem. And autofocus should only be used to mark an element to be focused when page loads.
-               }
-           });
-         }
-     };
-});
