@@ -18,6 +18,6 @@ describe('Controller: MoviePlayerCtrl', function() {
   }));
 
   it('should set movie url to argument passed', function() {
-    expect(scope.movieUrl).toBe('url');
+    expect(scope.movieUrl).toBe(movieUrl);
   });
 });
