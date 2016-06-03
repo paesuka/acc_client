@@ -1,3 +1,6 @@
+body {
+  min-width: 320px;
+}
 header {
   background-color: rgb(129, 132, 136);
   height: 4em;
@@ -29,14 +32,14 @@ header {
   display: table;
 }
 .movie-picture img {
-width: 214px;
-height: 317px;
-background-repeat: no-repeat;
-background-size: contain;
-background-image: url('../images/placeholder.jpg');
+  width: 214px;
+  height: 317px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url('../images/placeholder.jpg');
 }
 .movie-picture, .movie-title {
-  margin: 0.4em;
+  margin: 6px;
 }
 .movie-picture + .movie-title {
   display: table-caption;
@@ -47,30 +50,19 @@ background-image: url('../images/placeholder.jpg');
 .slick-current .movie-picture {
   border-color: rgb(24, 152, 236);
   border-style: solid;
-  border-width: 0.3em;
-  margin: 0.1em;
+  border-width: 4px;
+  margin: 2px;
 }
 .wrapper {
   margin: 2em;
 }
 
-/* Responsive: Portrait tablets and up */
+/* Responsiveness for small screens */
 
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-  /* Remove the padding we set earlier */
-  .header, .marketing, .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+@media screen and (max-width: 550px) {
+  /*Reduce picture size by factor two*/
+  .movie-picture img {
+    width: 107px;
+    height: 158px;
   }
 }
