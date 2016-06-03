@@ -9,10 +9,11 @@
  */
  angular.module('accClientApp')
    .service('WatchHistoryService', ['$http', '$rootScope', 'config', function($http, $rootScope, config) {
-    var rootUrl = config.apiUrlDev + 'watchhistory/';
     this.findByUserId = function(userId) {
-      return $http.get(rootUrl + userId).then(function(response) {
+      return $http.get(config.apiWatchhistoryUrlDev + userId).then(function(response) {
         return response.data;
+      }, function(response) {
+        console.log('error: failed to retrieve watchHistory' + response);
       });
     };
     this.addWatchedMovie = function(movieItem) {
@@ -22,8 +23,10 @@
         watchDate: new Date(),
         userId: $rootScope.cookie
       };
-      return $http.post(rootUrl, watchItem).then(function(response) {
+      return $http.post(config.apiWatchhistoryUrlDev, watchItem).then(function(response) {
         return response.data;
+      }, function(response) {
+        console.log('error: failed to persist watchItem ' + response)
       });
     };
   }]);

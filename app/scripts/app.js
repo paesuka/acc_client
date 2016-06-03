@@ -38,22 +38,24 @@ var app = angular
   });
 
 /**
- * Defining constans to use through the application
+ * Defining constans to use throughout the application
  */
 app.constant('config', {
-  apiUrlDev: 'http://localhost:9000/api/v0/',
-  apiUrl: 'https://immense-tor-76076.herokuapp.com/api/v0/'
+  apiWatchhistoryUrlDev: 'http://localhost:9000/api/v0/watchhistory/',
+  apiWatchhistoryUrl: 'https://immense-tor-76076.herokuapp.com/api/v0/watchhistory/',
+  apiMoviesUrlDev: 'http://localhost:9000/api/v0/movies/',
+  apiMoviesUrl: 'https://immense-tor-76076.herokuapp.com/api/v0/movies/',
+  cookieKey: 'acc-watch-history'
 });
 
 /**
  * Creates a cookie to track watch history of a user over browser sessions
  */
-app.run(['$rootScope', '$cookies', function($rootScope, $cookies) {
-  var watchHistoryCookie = $cookies.get('acc-watch-history');
+app.run(['$rootScope', '$cookies', 'config', function($rootScope, $cookies, config) {
+  var watchHistoryCookie = $cookies.get(config.cookieKey);
   if (!watchHistoryCookie) {
-    var date = new Date();
-    watchHistoryCookie = date.getTime();
-    $cookies.put('acc-watch-history', watchHistoryCookie);
+    watchHistoryCookie = new Date().getTime();
+    $cookies.put(config.cookieKey, watchHistoryCookie);
   }
   $rootScope.cookie = watchHistoryCookie;
   $rootScope.handleKeyDown = function(event) {

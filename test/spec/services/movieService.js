@@ -11,7 +11,7 @@ describe('Service: MovieService', function() {
   // Initialize the controller and mocks for scope and http
   beforeEach(inject(function(_MovieService_, $httpBackend) {
     httpBackend = $httpBackend;
-    httpBackend.whenGET('http://localhost:9000/api/v0/movies').respond(
+    httpBackend.whenGET('http://localhost:9000/api/v0/movies/').respond(
       [{
         title: titleTestString,
         contents: [{
