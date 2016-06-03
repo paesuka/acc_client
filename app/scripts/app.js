@@ -56,4 +56,7 @@ app.run(['$rootScope', '$cookies', function($rootScope, $cookies) {
     $cookies.put('acc-watch-history', watchHistoryCookie);
   }
   $rootScope.cookie = watchHistoryCookie;
+  $rootScope.handleKeyDown = function(event) {
+    $rootScope.$broadcast('keydown:' + event.keyCode, event);
+  };
 }]);

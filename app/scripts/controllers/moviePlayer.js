@@ -19,6 +19,6 @@ angular.module('accClientApp')
       };
       $scope.movieCompleted = function() {
         $uibModalInstance.dismiss();
-      }
+      };
     }
   ]);
