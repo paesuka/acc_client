@@ -8,8 +8,8 @@
  * Controller of the accClientApp
  */
 angular.module('accClientApp')
-  .controller('MovieCtrl', ['$scope', '$uibModal', '$window', 'MovieService', 'WatchHistoryService',
-    function($scope, $uibModal, $window, MovieService, WatchHistoryService) {
+  .controller('MovieCtrl', ['$scope', '$uibModal', 'MovieService', 'WatchHistoryService',
+    function($scope, $uibModal, MovieService, WatchHistoryService) {
 
       var currentMovieId = 0;
       var modalShowing = false;
@@ -41,7 +41,7 @@ angular.module('accClientApp')
 
       // handle keypress events fired from rootscope
       $scope.$on('keydown:13', function() {
-        executeRegardingModal($scope.playSelectedMovieItem);
+        executeRegardingModal($scope.playMovie, $scope.movies[currentMovieId]);
       });
       $scope.$on('keydown:39', function() {
         executeRegardingModal($scope.slickConfig.method.slickNext);
@@ -50,15 +50,14 @@ angular.module('accClientApp')
         executeRegardingModal($scope.slickConfig.method.slickPrev);
       });
 
-      function executeRegardingModal(func) {
+      function executeRegardingModal(func, param) {
         if (!modalShowing) {
-          func();
+          func(param);
         }
       }
 
-      $scope.playSelectedMovieItem = function() {
+      $scope.playMovie = function(movieItem) {
         modalShowing = true;
-        var movieItem = $scope.movies[currentMovieId];
         var uibModalInstance = $uibModal.open({
           templateUrl: 'views/moviePlayer.html',
           controller: 'MoviePlayerCtrl',

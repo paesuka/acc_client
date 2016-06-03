@@ -1,7 +1,7 @@
 <slick ng-if="movies" settings="slickConfig" id="slick">
   <div ng-repeat="movie in movies">
     <div class="movie-wrapper">
-      <div class="movie-picture" ng-click="playSelectedMovieItem()">
+      <div class="movie-picture" ng-click="playMovie(movie)">
         <img ng-src="{{movie.images[0].url}}">
       </div>
       <div class="movie-title">
