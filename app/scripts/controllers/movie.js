@@ -10,15 +10,15 @@
 angular.module('accClientApp')
   .controller('MovieCtrl', ['$scope', '$uibModal', 'MovieService', 'WatchHistoryService',
     function($scope, $uibModal, MovieService, WatchHistoryService) {
+      var movieContentIndex = 0;
 
       var currentMovieId = 0;
       var modalShowing = false;
-      var movieContentIndex = 0;
 
       MovieService.findAll().then(function(data) {
         $scope.movies = data;
       }, function(data) {
-        console.log('error : ' + data);
+        console.log('error: ' + data);
       });
 
       // configuration for the slick movie carousel
@@ -71,7 +71,7 @@ angular.module('accClientApp')
           modalShowing = false;
           WatchHistoryService.addWatchedMovie(movieItem).then(function() {},
             function(data) {
-              console.log('error persisting new watch item ' + data);
+              console.log('error: failed to persist new watch item ' + data);
             });
         });
       };

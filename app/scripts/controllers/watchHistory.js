@@ -11,12 +11,12 @@ angular.module('accClientApp')
   .controller('WatchHistoryCtrl', ['$scope', '$rootScope', 'WatchHistoryService',
     function($scope, $rootScope, WatchHistoryService) {
       WatchHistoryService.findByUserId($rootScope.cookie).then(function(data) {
-        $scope.watchHistory = data.sort(sortWatchItem);
+        $scope.watchHistory = data.sort(sortWatchItemDateDesc);
       }, function(data) {
-        console.log('error : ' + data);
+        console.log('error: ' + data);
       });
 
-      function sortWatchItem(left, right) {
+      function sortWatchItemDateDesc(left, right) {
         return new Date(right.watchDate).getTime() - new Date(left.watchDate).getTime();
       }
     }
