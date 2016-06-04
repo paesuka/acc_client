@@ -23,9 +23,9 @@ var app = angular
   ]).config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/movie.html',
-        controller: 'MovieCtrl',
-        controllerAs: 'movie'
+        templateUrl: 'views/movieList.html',
+        controller: 'MovieListCtrl',
+        controllerAs: 'movieList'
       })
       .when('/watchhistory', {
         templateUrl: 'views/watchHistory.html',
