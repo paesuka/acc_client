@@ -5,7 +5,7 @@
  * @name accClientApp.controller:MoviePlayerCtrl
  * @description
  * # MoviePlayerCtrl
- * Controller of the accClientApp
+ * Handles the movie playback.
  */
 angular.module('accClientApp')
   .controller('MoviePlayerCtrl', ['$scope', '$sce', '$uibModalInstance', 'movieContent',
@@ -18,7 +18,7 @@ angular.module('accClientApp')
         }],
         tracks: []
       };
-      
+
       $scope.movieCompleted = function() {
         $uibModalInstance.dismiss();
       };

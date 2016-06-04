@@ -5,12 +5,12 @@
  * @name accClientApp.controller:WatchHistoryCtrl
  * @description
  * # WatchHistoryCtrl
- * Controller of the accClientApp
+ * Presents a list of previously watched movies.
  */
 angular.module('accClientApp')
   .controller('WatchHistoryCtrl', ['$scope', '$rootScope', 'WatchHistoryService',
     function($scope, $rootScope, WatchHistoryService) {
-      
+
       WatchHistoryService.findByUserId($rootScope.cookie).then(function(data) {
         $scope.watchHistory = data.sort(sortWatchItemDateDesc);
       }, function(data) {

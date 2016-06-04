@@ -5,7 +5,8 @@
  * @name accClientApp.controller:MovieListCtrl
  * @description
  * # MovieListCtrl
- * Controller of the accClientApp
+ * Showing a list of all movies and handles interaction for browsing,
+ * selecting and keeping track of watch history.
  */
 angular.module('accClientApp')
   .controller('MovieListCtrl', ['$window', '$scope', '$uibModal', 'MovieService', 'WatchHistoryService',
@@ -13,13 +14,6 @@ angular.module('accClientApp')
 
       function isMobileScreen() {
         return $window.innerWidth <= 550;
-      }
-
-      // disable keyboard controls when modal is showing or on mobile
-      function executeMovieSelection(func, param) {
-        if (!modalShowing && !$scope.mobile && $scope.slickConfig.enabled) {
-          func(param);
-        }
       }
 
       $scope.mobile = isMobileScreen();
@@ -65,6 +59,13 @@ angular.module('accClientApp')
         executeMovieSelection($scope.slickConfig.method.slickPrev);
       });
 
+      // disable keyboard controls when modal is showing or on mobile
+      function executeMovieSelection(func, param) {
+        if (!modalShowing && !$scope.mobile && $scope.slickConfig.enabled) {
+          func(param);
+        }
+      }
+
       //bind window resize to change movie list layout
       angular.element($window).bind('resize', function() {
         if ($scope.mobile !== isMobileScreen()) {
@@ -73,7 +74,7 @@ angular.module('accClientApp')
         }
       });
 
-      // open and wait for modal to play movie
+      // open modal and add movie to watched list when closed
       $scope.playMovie = function(movieItem) {
         modalShowing = true;
         var uibModalInstance = $uibModal.open({

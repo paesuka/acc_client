@@ -5,7 +5,7 @@
  * @name accClientApp.service:WatchHistoryService
  * @description
  * # WatchHistoryService
- * Service of the accClientApp
+ * Handles delievering and persisting of the watch history.
  */
  angular.module('accClientApp')
    .service('WatchHistoryService', ['$http', '$rootScope', 'config', function($http, $rootScope, config) {
