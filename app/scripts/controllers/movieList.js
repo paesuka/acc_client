@@ -69,8 +69,7 @@ angular.module('accClientApp')
       //bind window resize to change movie list layout
       angular.element($window).bind('resize', function() {
         if ($scope.mobile !== isMobileScreen()) {
-          $scope.mobile = !$scope.mobile;
-          $scope.$apply();
+          $scope.$apply($scope.mobile = !$scope.mobile);
         }
       });
 
