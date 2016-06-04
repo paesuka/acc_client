@@ -1,9 +1,6 @@
-<div class="row">
-  <h2 class="page-header">Previously watched:</h2>
-  <ul class="nav nav-tabs nav-stacked" ng-repeat="watchItem in watchHistory">
-    <li>
-      <h4>{{watchItem.title}}</h4></li>
-    <li>
-      <h5>{{watchItem.watchDate | date:"dd/MM/yyyy 'at' h:mma"}}</h5></li>
-  </ul>
-</div>
+<ul class="nav nav-tabs nav-stacked" ng-repeat="watchItem in watchHistory">
+  <li>
+    <h4><span id="watch-item-title">{{watchItem.title}}</span></h4></li>
+  <li>
+    <h5>{{watchItem.watchDate | date:"dd/MM/yyyy 'at' h:mma"}}</h5></li>
+</ul>

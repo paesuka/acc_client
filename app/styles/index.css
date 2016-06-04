@@ -13,12 +13,13 @@ header {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  margin-right: 2em;
-  margin-left: 2em;
+  /*margin-right: 2em;
+  margin-left: 2em;*/
 }
 .nav-left {
   float: left;
   font-size: 1.5em;
+  margin-left: 2em;
 }
 .navigation a {
   color: white;
@@ -26,7 +27,7 @@ header {
 .nav-right {
   float: right;
   font-size: 1em;
-  /*text-decoration: underline;*/
+  margin-right: 2em;
 }
 .slick-slide {
   margin-left: 1em;
@@ -64,6 +65,11 @@ header {
   margin-right: 10px;
   margin-top: 65px;
 }
+#watch-item-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 @media screen and (max-width: 550px) {
   .mobile-movie {
     float: left;
@@ -71,7 +77,6 @@ header {
   .mobile-movie-wrapper {
     width: 452px;
     position: relative;
-    /*padding-top: 65px;*/
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
