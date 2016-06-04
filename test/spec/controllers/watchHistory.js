@@ -39,17 +39,17 @@ describe('Controller: WatchHistoryCtrl', function() {
     });
   }));
 
-  it('should set watchHistory to promise when call finished', function() {
-    expect(scope.watchHistory).toBe(undefined);
+  it('should set movieItems to promise when call finished', function() {
+    expect(watchHistoryCtrl.watchItems).toBe(undefined);
     scope.$apply();
-    expect(scope.watchHistory).toBe(promiseValue);
+    expect(watchHistoryCtrl.watchItems).toBe(promiseValue);
   });
 
   it('should return all movies in sorted order', function() {
     scope.$apply();
-    var watchHistory = scope.watchHistory;
-    expect(watchHistory[0].movieId).toBe(2);
-    expect(watchHistory[1].movieId).toBe(3);
-    expect(watchHistory[2].movieId).toBe(1);
+    var watchItems = watchHistoryCtrl.watchItems;
+    expect(watchItems[0].movieId).toBe(2);
+    expect(watchItems[1].movieId).toBe(3);
+    expect(watchItems[2].movieId).toBe(1);
   });
 });

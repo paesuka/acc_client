@@ -25,8 +25,8 @@ describe('Controller: MovieListCtrl', function() {
   }));
 
   it('should set movies to promise when call finished', function() {
-    expect(scope.movies).toBe(undefined);
+    expect(movieListCtrl.movies).toBe(undefined);
     scope.$apply();
-    expect(scope.movies).toBe(promiseValue);
+    expect(movieListCtrl.movies).toBe(promiseValue);
   });
 });

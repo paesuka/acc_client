@@ -10,8 +10,11 @@
 angular.module('accClientApp')
   .controller('MoviePlayerCtrl', ['$scope', '$sce', '$uibModalInstance', 'movieContent',
     function($scope, $sce, $uibModalInstance, movieContent) {
+      // use specific view model instead of missusing $scope as model, see
+      // https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y030
+      var vm = this;
 
-      $scope.config = {
+      vm.config = {
         sources: [{
           src: $sce.trustAsResourceUrl(movieContent.url),
           type: 'video/' + movieContent.format
@@ -19,7 +22,7 @@ angular.module('accClientApp')
         tracks: []
       };
 
-      $scope.movieCompleted = function() {
+      vm.movieCompleted = function() {
         $uibModalInstance.dismiss();
       };
     }

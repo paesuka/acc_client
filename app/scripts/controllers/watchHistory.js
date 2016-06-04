@@ -10,9 +10,12 @@
 angular.module('accClientApp')
   .controller('WatchHistoryCtrl', ['$scope', '$rootScope', 'WatchHistoryService',
     function($scope, $rootScope, WatchHistoryService) {
+      // use specific view model instead of missusing $scope as model, see
+      // https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y030
+      var vm = this;
 
       WatchHistoryService.findByUserId($rootScope.cookie).then(function(data) {
-        $scope.watchHistory = data.sort(sortWatchItemDateDesc);
+        vm.watchItems = data.sort(sortWatchItemDateDesc);
       }, function(data) {
         console.log('error: ' + data);
       });

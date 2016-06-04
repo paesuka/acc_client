@@ -21,12 +21,12 @@ describe('Controller: MoviePlayerCtrl', function() {
   }));
 
   it('should define a movieCompleted function', function() {
-      expect(scope.movieCompleted).toBeDefined();
-      expect(angular.isFunction(scope.movieCompleted)).toBeTruthy();
+      expect(moviePlayerCtrl.movieCompleted).toBeDefined();
+      expect(angular.isFunction(moviePlayerCtrl.movieCompleted)).toBeTruthy();
     });
 
   it('should have called uibModalInstance dismiss', function() {
-    scope.movieCompleted();
+    moviePlayerCtrl.movieCompleted();
     expect(uibModalInstance.dismiss).toHaveBeenCalled();
   });
 });
