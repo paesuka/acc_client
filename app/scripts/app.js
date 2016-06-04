@@ -38,9 +38,7 @@ var app = angular
       });
   });
 
-/**
- * Defining constans to use throughout the application
- */
+// defining constans to use throughout the application
 app.constant('config', {
   apiWatchhistoryUrlDev: 'http://localhost:9000/api/v0/watchhistory/',
   apiWatchhistoryUrl: 'https://immense-tor-76076.herokuapp.com/api/v0/watchhistory/',
@@ -49,9 +47,7 @@ app.constant('config', {
   cookieKey: 'acc-watch-history'
 });
 
-/**
- * Creates a cookie to track watch history of a user over browser sessions
- */
+// creates a cookie to track watch history of a user over browser sessions
 app.run(['$rootScope', '$cookies', 'config', function($rootScope, $cookies, config) {
   var watchHistoryCookie = $cookies.get(config.cookieKey);
   if (!watchHistoryCookie) {
