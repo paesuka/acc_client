@@ -19,7 +19,8 @@ var app = angular
     'ui.bootstrap',
     'slickCarousel',
     'com.2fdevs.videogular',
-    'com.2fdevs.videogular.plugins.controls'
+    'com.2fdevs.videogular.plugins.controls',
+    'com.2fdevs.videogular.plugins.overlayplay'
   ]).config(function($routeProvider) {
     $routeProvider
       .when('/', {
