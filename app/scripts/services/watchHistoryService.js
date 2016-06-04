@@ -9,6 +9,7 @@
  */
  angular.module('accClientApp')
    .service('WatchHistoryService', ['$http', '$rootScope', 'config', function($http, $rootScope, config) {
+
     this.findByUserId = function(userId) {
       return $http.get(config.apiWatchhistoryUrlDev + userId).then(function(response) {
         return response.data;
@@ -16,6 +17,7 @@
         console.log('error: failed to retrieve watchHistory' + response);
       });
     };
+
     this.addWatchedMovie = function(movieItem) {
       var watchItem = {
         title: movieItem.title,
