@@ -41,9 +41,9 @@ var app = angular
 // defining constans to use throughout the application
 app.constant('config', {
   apiWatchhistoryUrlDev: 'http://localhost:9000/api/v0/watchhistory/',
-  apiWatchhistoryUrl: 'https://immense-tor-76076.herokuapp.com/api/v0/watchhistory/',
+  apiWatchhistoryUrl: 'http://immense-tor-76076.herokuapp.com/api/v0/watchhistory/',
   apiMoviesUrlDev: 'http://localhost:9000/api/v0/movies/',
-  apiMoviesUrl: 'https://immense-tor-76076.herokuapp.com/api/v0/movies/',
+  apiMoviesUrl: 'http://immense-tor-76076.herokuapp.com/api/v0/movies/',
   cookieKey: 'acc-watch-history'
 });
 

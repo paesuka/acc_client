@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/paesuka/acc_client.svg?branch=master)](https://travis-ci.org/paesuka/acc_client)
 
-<a href="https://morning-spire-75286.herokuapp.com/#/">https://morning-spire-75286.herokuapp.com/#/</a>
+<a href="http://morning-spire-75286.herokuapp.com/#/">http://morning-spire-75286.herokuapp.com/#/</a>
 
 ## Developing
 
