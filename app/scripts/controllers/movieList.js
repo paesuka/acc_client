@@ -15,6 +15,13 @@ angular.module('accClientApp')
         return $window.innerWidth <= 550;
       }
 
+      // disable keyboard controls when modal is showing or on mobile
+      function executeMovieSelection(func, param) {
+        if (!modalShowing && !$scope.mobile && $scope.slickConfig.enabled) {
+          func(param);
+        }
+      }
+
       $scope.mobile = isMobileScreen();
       var movieContentIndex = 0;
       var currentMovieIndex = 0;
@@ -86,12 +93,5 @@ angular.module('accClientApp')
             });
         });
       };
-
-      // disable keyboard controls when modal is showing or on mobile
-      function executeMovieSelection(func, param) {
-        if (!modalShowing && !$scope.mobile && $scope.slickConfig.enabled) {
-          func(param);
-        }
-      }
     }
   ]);

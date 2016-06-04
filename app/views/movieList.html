@@ -13,7 +13,8 @@
 </slick>
 
 <!-- Movile version -->
-<span ng-if="mobile" class="mobile-movie" ng-repeat="movie in movies">
+<div ng-if="mobile" class="mobile-movie-wrapper">
+  <span class="mobile-movie" ng-repeat="movie in movies">
   <div class="movie-wrapper">
     <div class="movie-picture" ng-click="playMovie(movie)">
       <img ng-src="{{movie.images[0].url}}">
@@ -21,5 +22,6 @@
     <span class="movie-title">
       {{movie.title}}
     </span>
-  </div>
-</span>
+    </div>
+  </span>
+</div>

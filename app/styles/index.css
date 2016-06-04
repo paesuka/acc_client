@@ -1,11 +1,11 @@
 body {
-  min-width: 525px;
+  min-width: 452px;
 }
 header {
   position: fixed;
   width: 100%;
-z-index: 2;
-top: 0;
+  z-index: 2;
+  top: 0;
   background-color: rgb(129, 132, 136);
   height: 4em;
 }
@@ -60,20 +60,20 @@ top: 0;
   margin: 2px;
 }
 .wrapper {
-  margin-left: 2em;
-  margin-right: 2em;
-  margin-top: 4.5em;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 65px;
 }
-
-/* Responsiveness for small screens */
-
 @media screen and (max-width: 550px) {
-  /*Reduce picture size by factor two*/
-  /*.movie-picture img {
-    width: 107px;
-    height: 158px;
-  }*/
   .mobile-movie {
     float: left;
+  }
+  .mobile-movie-wrapper {
+    width: 452px;
+    position: relative;
+    /*padding-top: 65px;*/
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }
