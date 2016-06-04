@@ -10,6 +10,7 @@
 angular.module('accClientApp')
   .controller('WatchHistoryCtrl', ['$scope', '$rootScope', 'WatchHistoryService',
     function($scope, $rootScope, WatchHistoryService) {
+      
       WatchHistoryService.findByUserId($rootScope.cookie).then(function(data) {
         $scope.watchHistory = data.sort(sortWatchItemDateDesc);
       }, function(data) {

@@ -10,6 +10,7 @@
 angular.module('accClientApp')
   .controller('MoviePlayerCtrl', ['$scope', '$sce', '$uibModalInstance', 'movieContent',
     function($scope, $sce, $uibModalInstance, movieContent) {
+
       $scope.config = {
         sources: [{
           src: $sce.trustAsResourceUrl(movieContent.url),
@@ -17,6 +18,7 @@ angular.module('accClientApp')
         }],
         tracks: []
       };
+      
       $scope.movieCompleted = function() {
         $uibModalInstance.dismiss();
       };
