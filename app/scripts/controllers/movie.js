@@ -8,11 +8,16 @@
  * Controller of the accClientApp
  */
 angular.module('accClientApp')
-  .controller('MovieCtrl', ['$scope', '$uibModal', 'MovieService', 'WatchHistoryService',
-    function($scope, $uibModal, MovieService, WatchHistoryService) {
-      var movieContentIndex = 0;
+  .controller('MovieCtrl', ['$window', '$scope', '$uibModal', 'MovieService', 'WatchHistoryService',
+    function($window, $scope, $uibModal, MovieService, WatchHistoryService) {
 
-      var currentMovieId = 0;
+      function isMobileScreen() {
+        return $window.innerWidth <= 550;
+      }
+
+      $scope.mobile = isMobileScreen();
+      var movieContentIndex = 0;
+      var currentMovieIndex = 0;
       var modalShowing = false;
 
       MovieService.findAll().then(function(data) {
@@ -33,29 +38,35 @@ angular.module('accClientApp')
         slidesToScroll: 1,
         method: {},
         event: {
+          init: function() {
+            currentMovieIndex = 0;
+          },
           beforeChange: function(event, slick, currentSlide, nextSlide) {
-            currentMovieId = nextSlide;
+            currentMovieIndex = nextSlide;
           }
         }
       };
 
       // handle keypress events fired from rootscope
       $scope.$on('keydown:13', function() {
-        executeRegardingModal($scope.playMovie, $scope.movies[currentMovieId]);
+        executeMovieSelection($scope.playMovie, $scope.movies[currentMovieIndex]);
       });
       $scope.$on('keydown:39', function() {
-        executeRegardingModal($scope.slickConfig.method.slickNext);
+        executeMovieSelection($scope.slickConfig.method.slickNext);
       });
       $scope.$on('keydown:37', function() {
-        executeRegardingModal($scope.slickConfig.method.slickPrev);
+        executeMovieSelection($scope.slickConfig.method.slickPrev);
       });
 
-      function executeRegardingModal(func, param) {
-        if (!modalShowing) {
-          func(param);
+      //use service instead of global variable
+      angular.element($window).bind('resize', function() {
+        if ($scope.mobile !== isMobileScreen()) {
+          $scope.mobile = !$scope.mobile;
+          $scope.$apply();
         }
-      }
+      });
 
+      // open and wait for modal to play movie
       $scope.playMovie = function(movieItem) {
         modalShowing = true;
         var uibModalInstance = $uibModal.open({
@@ -75,5 +86,12 @@ angular.module('accClientApp')
             });
         });
       };
+
+      // disable keyboard controls when modal is showing or on mobile
+      function executeMovieSelection(func, param) {
+        if (!modalShowing && !$scope.mobile && $scope.slickConfig.enabled) {
+          func(param);
+        }
+      }
     }
   ]);

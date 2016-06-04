@@ -26,7 +26,7 @@
       return $http.post(config.apiWatchhistoryUrlDev, watchItem).then(function(response) {
         return response.data;
       }, function(response) {
-        console.log('error: failed to persist watchItem ' + response)
+        console.log('error: failed to persist watchItem ' + response);
       });
     };
   }]);

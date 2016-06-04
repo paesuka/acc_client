@@ -1,7 +1,11 @@
 body {
-  min-width: 320px;
+  min-width: 525px;
 }
 header {
+  position: fixed;
+  width: 100%;
+z-index: 2;
+top: 0;
   background-color: rgb(129, 132, 136);
   height: 4em;
 }
@@ -42,10 +46,12 @@ header {
   margin: 6px;
 }
 .movie-picture + .movie-title {
+  width: 214px;
   display: table-caption;
   caption-side: bottom;
-  overflow: hidden;
-  /*white-space: nowrap;*/
+  overflow: hidden !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .slick-current .movie-picture {
   border-color: rgb(24, 152, 236);
@@ -54,15 +60,20 @@ header {
   margin: 2px;
 }
 .wrapper {
-  margin: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-top: 4.5em;
 }
 
 /* Responsiveness for small screens */
 
 @media screen and (max-width: 550px) {
   /*Reduce picture size by factor two*/
-  .movie-picture img {
+  /*.movie-picture img {
     width: 107px;
     height: 158px;
+  }*/
+  .mobile-movie {
+    float: left;
   }
 }
