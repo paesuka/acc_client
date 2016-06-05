@@ -6,6 +6,8 @@
  * @description
  * # MoviePlayerCtrl
  * Handles the movie playback.
+ * DOMException while jumping in video, see:
+ * https://bugs.chromium.org/p/chromium/issues/detail?id=593273
  */
 angular.module('accClientApp')
   .controller('MoviePlayerCtrl', ['$scope', '$sce', '$uibModalInstance', 'movieContent',
