@@ -10,6 +10,8 @@
 
 2. Run `npm install` to install server dependencies.
 
+3. Run `bower install` to install client dependencies.
+
 ## Build & development
 
 Run `grunt build` for building and `grunt serve` for preview.
