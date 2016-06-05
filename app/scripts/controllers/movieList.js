@@ -14,15 +14,11 @@ angular.module('accClientApp')
       // use specific view model instead of missusing $scope as model, see
       // https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y030
       var vm = this;
-
-      function isMobileScreen() {
-        return $window.innerWidth <= 550;
-      }
-
-      vm.mobile = isMobileScreen();
       var movieContentIndex = 0;
       var currentMovieIndex = 0;
       var modalShowing = false;
+
+      vm.mobile = isMobileScreen();
 
       MovieService.findAll().then(function(data) {
         vm.movies = data;
@@ -67,6 +63,10 @@ angular.module('accClientApp')
         if (!modalShowing && !vm.mobile && vm.slickConfig.enabled) {
           func(param);
         }
+      }
+
+      function isMobileScreen() {
+        return $window.innerWidth <= 550;
       }
 
       //bind window resize to change movie list layout
