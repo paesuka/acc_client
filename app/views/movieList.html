@@ -2,7 +2,7 @@
 <slick ng-if="movieList.movies && !movieList.mobile" settings="movieList.slickConfig" id="slick">
   <div ng-repeat="movie in movieList.movies">
     <div class="movie-wrapper">
-      <div class="movie-picture" ng-click="playMovie(movie)">
+      <div class="movie-picture" ng-click="movieList.playMovie(movie)">
         <img ng-src="{{movie.images[0].url}}">
       </div>
       <span class="movie-title">
