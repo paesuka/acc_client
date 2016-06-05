@@ -10,7 +10,8 @@ describe('Service: WatchHistoryService', function() {
   var titleTestString = 'things I want';
 
   // Initialize the controller and mocks for scope and http
-  beforeEach(inject(function(_WatchHistoryService_, $httpBackend) {
+  beforeEach(inject(function(_WatchHistoryService_, $httpBackend, $localStorage) {
+    $localStorage.cookie = userId;
     httpBackend = $httpBackend;
     httpBackend.whenGET(rootUrl + userId).respond([{
       title: 'things I did',
@@ -39,7 +40,7 @@ describe('Service: WatchHistoryService', function() {
 
   it('should return all movies with matching userIds for findByUserId', function() {
     var watchHistory;
-    watchHistoryService.findByUserId(userId).then(function(data) {
+    watchHistoryService.findByCurrentUser().then(function(data) {
       watchHistory = data;
     });
     httpBackend.flush();

@@ -8,10 +8,10 @@
  * Handles delievering and persisting of the watch history.
  */
  angular.module('accClientApp')
-   .service('WatchHistoryService', ['$http', '$rootScope', 'config', function($http, $rootScope, config) {
+   .service('WatchHistoryService', ['$http', '$localStorage', 'config', function($http, $localStorage, config) {
 
-    this.findByUserId = function(userId) {
-      return $http.get(config.apiWatchhistoryUrlDev + userId).then(function(response) {
+    this.findByCurrentUser = function() {
+      return $http.get(config.apiWatchhistoryUrlDev + $localStorage.cookie).then(function(response) {
         return response.data;
       }, function(response) {
         console.log('error: failed to retrieve watchHistory' + response);
@@ -23,7 +23,7 @@
         title: movieItem.title,
         movieId: movieItem.id,
         watchDate: new Date(),
-        userId: $rootScope.cookie
+        userId: $localStorage.cookie
       };
       return $http.post(config.apiWatchhistoryUrlDev, watchItem).then(function(response) {
         return response.data;

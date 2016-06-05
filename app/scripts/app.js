@@ -20,7 +20,8 @@ var app = angular
     'slickCarousel',
     'com.2fdevs.videogular',
     'com.2fdevs.videogular.plugins.controls',
-    'com.2fdevs.videogular.plugins.overlayplay'
+    'com.2fdevs.videogular.plugins.overlayplay',
+    'ngStorage'
   ]).config(function($routeProvider) {
     $routeProvider
       .when('/', {
@@ -48,13 +49,13 @@ app.constant('config', {
 });
 
 // creates a cookie to track watch history of a user over browser sessions
-app.run(['$rootScope', '$cookies', 'config', function($rootScope, $cookies, config) {
+app.run(['$rootScope', '$localStorage', '$cookies', 'config', function($rootScope, $localStorage, $cookies, config) {
   var watchHistoryCookie = $cookies.get(config.cookieKey);
   if (!watchHistoryCookie) {
     watchHistoryCookie = new Date().getTime();
     $cookies.put(config.cookieKey, watchHistoryCookie);
   }
-  $rootScope.cookie = watchHistoryCookie;
+  $localStorage.cookie = watchHistoryCookie;
   $rootScope.handleKeyDown = function(event) {
     $rootScope.$broadcast('keydown:' + event.keyCode, event);
   };

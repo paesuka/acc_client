@@ -32,7 +32,7 @@ describe('Controller: WatchHistoryCtrl', function() {
     watchHistoryCtrl = $controller('WatchHistoryCtrl', {
       $scope: scope,
       WatchHistoryService: {
-        findByUserId: function() {
+        findByCurrentUser: function() {
           return promise;
         }
       }
