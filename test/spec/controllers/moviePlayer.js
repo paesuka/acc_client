@@ -7,7 +7,9 @@ describe('Controller: MoviePlayerCtrl', function() {
 
   var moviePlayerCtrl, scope;
   var movieContent = [];
-  var uibModalInstance = {dismiss: function() {}};
+  var uibModalInstance = {
+    dismiss: function() {}
+  };
 
   // Initialize the controller and mock
   beforeEach(inject(function($controller, $rootScope) {
@@ -21,9 +23,9 @@ describe('Controller: MoviePlayerCtrl', function() {
   }));
 
   it('should define a movieCompleted function', function() {
-      expect(moviePlayerCtrl.movieCompleted).toBeDefined();
-      expect(angular.isFunction(moviePlayerCtrl.movieCompleted)).toBeTruthy();
-    });
+    expect(moviePlayerCtrl.movieCompleted).toBeDefined();
+    expect(angular.isFunction(moviePlayerCtrl.movieCompleted)).toBeTruthy();
+  });
 
   it('should have called uibModalInstance dismiss', function() {
     moviePlayerCtrl.movieCompleted();
