@@ -12,7 +12,7 @@ A simple media VOD (Video On-Demand) application that keeps track of previously 
 
 <a href="http://morning-spire-75286.herokuapp.com/#/">http://morning-spire-75286.herokuapp.com/#/</a>
 
-The application provides two views, landscape and portrait (screen-size < 550px). As mobile devices will mostly use portrait, keyboard functionality is disabled in this mode.
+The application provides two views, landscape and portrait (screen-size <= 550px). As mobile devices will mostly use portrait, keyboard functionality is disabled in this mode.
 
 The watch history is saved on browser basis with the help of cookies and therefore works across browsing sessions. The watch history is lost when the cookie gets deleted. The watch history is shown in chronological order.
 
