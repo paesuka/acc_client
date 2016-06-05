@@ -16,7 +16,7 @@ angular.module('accClientApp')
       // https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#style-y030
       var vm = this;
 
-      vm.config = {
+      vm.videogularConfig = {
         sources: [{
           src: $sce.trustAsResourceUrl(movieContent.url),
           type: 'video/' + movieContent.format
