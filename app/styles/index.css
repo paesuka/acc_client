@@ -19,7 +19,8 @@ header {
 .nav-left {
   float: left;
   font-size: 1.5em;
-  margin-left: 2em;
+  margin-left: 20px;
+  margin-right: -20px;
 }
 .navigation a {
   color: white;
@@ -27,7 +28,8 @@ header {
 .nav-right {
   float: right;
   font-size: 1em;
-  margin-right: 2em;
+  margin-right: 20px;
+  margin-left: -20px;
 }
 .slick-slide {
   margin-left: 1em;
