@@ -32,6 +32,7 @@ angular.module('accClientApp')
         draggable: true,
         infinite: true,
         variableWidth: true,
+        swipeToSlide: true,
         autoplay: false,
         arrows: false,
         slidesToShow: 10,
